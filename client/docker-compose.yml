@@ -1,0 +1,18 @@
+version: '3'
+
+networks:
+  network-unittest:
+    driver: bridge
+
+services:
+  postgresunittest:
+    image: postgres:16.2
+    networks:
+      - network-unittest
+    container_name: postgres-test
+    ports:
+      - 65432:5432
+    environment:
+      - POSTGRES_DB=testcase
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
